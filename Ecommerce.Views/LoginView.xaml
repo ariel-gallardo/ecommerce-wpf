@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="Ecommerce.Views.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ecommerce.Views"
+        mc:Ignorable="d"
+        Height="450" Width="800">
+    <Grid VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Welcome to Ecommerce" HorizontalAlignment="Center" FontSize="16" FontWeight="DemiBold"/>
+        <Grid Width="200" HorizontalAlignment="Center" Margin="0 5" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Username"/>
+            <TextBox Grid.Column="1" Text="{Binding ViewModel.LoginDTO.Username, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+        <Grid Width="200" HorizontalAlignment="Center" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Password"/>
+            <TextBox Grid.Column="1" Text="{Binding ViewModel.LoginDTO.Password, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+        <Grid Grid.Row="3" HorizontalAlignment="Center" Margin="0 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Sign in" Padding="3" Command="{Binding ViewModel.LoginCommand}"/>
+            <TextBlock Text="Don’t have an account? Register here" Grid.Column="1" 
+                       Margin="10 0 0 0" VerticalAlignment="Bottom"
+                       Foreground="Blue" FontStyle="Oblique" FontSize="11"/>
+        </Grid>
+    </Grid>
+</UserControl>
